@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czb.train.childrenfinancial.mapper.BusiInfMapper">
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.BusiInf">
+    <id column="BUSI_ID" jdbcType="VARCHAR" property="busiId" />
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="FIN_PRODUCT_ID" jdbcType="VARCHAR" property="finProductId" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="UPD_TIME" jdbcType="TIMESTAMP" property="updTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BUSI_ID, USER_ID, FIN_PRODUCT_ID, AMT, UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from busi_inf
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInfKey">
+    delete from busi_inf
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    insert into busi_inf (BUSI_ID, USER_ID, FIN_PRODUCT_ID, 
+      AMT, UPD_TIME)
+    values (#{busiId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{finProductId,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{updTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    insert into busi_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiId != null">
+        BUSI_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="finProductId != null">
+        FIN_PRODUCT_ID,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="updTime != null">
+        UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiId != null">
+        #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="finProductId != null">
+        #{finProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    update busi_inf
+    <set>
+      <if test="finProductId != null">
+        FIN_PRODUCT_ID = #{finProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="updTime != null">
+        UPD_TIME = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    update busi_inf
+    set FIN_PRODUCT_ID = #{finProductId,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      UPD_TIME = #{updTime,jdbcType=TIMESTAMP}
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.BusiInf">
+    <id column="BUSI_ID" jdbcType="VARCHAR" property="busiId" />
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="FIN_PRODUCT_ID" jdbcType="VARCHAR" property="finProductId" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="UPD_TIME" jdbcType="TIMESTAMP" property="updTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BUSI_ID, USER_ID, FIN_PRODUCT_ID, AMT, UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from busi_inf
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInfKey">
+    delete from busi_inf
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    insert into busi_inf (BUSI_ID, USER_ID, FIN_PRODUCT_ID, 
+      AMT, UPD_TIME)
+    values (#{busiId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{finProductId,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{updTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    insert into busi_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiId != null">
+        BUSI_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="finProductId != null">
+        FIN_PRODUCT_ID,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="updTime != null">
+        UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiId != null">
+        #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="finProductId != null">
+        #{finProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    update busi_inf
+    <set>
+      <if test="finProductId != null">
+        FIN_PRODUCT_ID = #{finProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="updTime != null">
+        UPD_TIME = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    update busi_inf
+    set FIN_PRODUCT_ID = #{finProductId,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      UPD_TIME = #{updTime,jdbcType=TIMESTAMP}
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.BusiInf">
+    <id column="BUSI_ID" jdbcType="VARCHAR" property="busiId" />
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="FIN_PRODUCT_ID" jdbcType="VARCHAR" property="finProductId" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="UPD_TIME" jdbcType="TIMESTAMP" property="updTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BUSI_ID, USER_ID, FIN_PRODUCT_ID, AMT, UPD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from busi_inf
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInfKey">
+    delete from busi_inf
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    insert into busi_inf (BUSI_ID, USER_ID, FIN_PRODUCT_ID, 
+      AMT, UPD_TIME)
+    values (#{busiId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{finProductId,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{updTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    insert into busi_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiId != null">
+        BUSI_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="finProductId != null">
+        FIN_PRODUCT_ID,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="updTime != null">
+        UPD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiId != null">
+        #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="finProductId != null">
+        #{finProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    update busi_inf
+    <set>
+      <if test="finProductId != null">
+        FIN_PRODUCT_ID = #{finProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="updTime != null">
+        UPD_TIME = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.BusiInf">
+    update busi_inf
+    set FIN_PRODUCT_ID = #{finProductId,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      UPD_TIME = #{updTime,jdbcType=TIMESTAMP}
+    where BUSI_ID = #{busiId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>

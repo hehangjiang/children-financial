@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czb.train.childrenfinancial.mapper.ProfitInfMapper">
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.ProfitInf">
+    <id column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <id column="PROFIT" jdbcType="DECIMAL" property="profit" />
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="TYPE" jdbcType="BIT" property="type" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACCOUNT, PROFIT, PRODUCT_ID, TYPE, ADD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from profit_inf
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInfKey">
+    delete from profit_inf
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    insert into profit_inf (ACCOUNT, PROFIT, PRODUCT_ID, 
+      TYPE, ADD_TIME)
+    values (#{account,jdbcType=VARCHAR}, #{profit,jdbcType=DECIMAL}, #{productId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    insert into profit_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="profit != null">
+        PROFIT,
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null">
+        #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    update profit_inf
+    <set>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=BIT},
+      </if>
+      <if test="addTime != null">
+        ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    update profit_inf
+    set TYPE = #{type,jdbcType=BIT},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.ProfitInf">
+    <id column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <id column="PROFIT" jdbcType="DECIMAL" property="profit" />
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="TYPE" jdbcType="BIT" property="type" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACCOUNT, PROFIT, PRODUCT_ID, TYPE, ADD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from profit_inf
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInfKey">
+    delete from profit_inf
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    insert into profit_inf (ACCOUNT, PROFIT, PRODUCT_ID, 
+      TYPE, ADD_TIME)
+    values (#{account,jdbcType=VARCHAR}, #{profit,jdbcType=DECIMAL}, #{productId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    insert into profit_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="profit != null">
+        PROFIT,
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null">
+        #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    update profit_inf
+    <set>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=BIT},
+      </if>
+      <if test="addTime != null">
+        ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    update profit_inf
+    set TYPE = #{type,jdbcType=BIT},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.ProfitInf">
+    <id column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <id column="PROFIT" jdbcType="DECIMAL" property="profit" />
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="TYPE" jdbcType="BIT" property="type" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACCOUNT, PROFIT, PRODUCT_ID, TYPE, ADD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from profit_inf
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInfKey">
+    delete from profit_inf
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    insert into profit_inf (ACCOUNT, PROFIT, PRODUCT_ID, 
+      TYPE, ADD_TIME)
+    values (#{account,jdbcType=VARCHAR}, #{profit,jdbcType=DECIMAL}, #{productId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    insert into profit_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="profit != null">
+        PROFIT,
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null">
+        #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    update profit_inf
+    <set>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=BIT},
+      </if>
+      <if test="addTime != null">
+        ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.ProfitInf">
+    update profit_inf
+    set TYPE = #{type,jdbcType=BIT},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+    where ACCOUNT = #{account,jdbcType=VARCHAR}
+      and PROFIT = #{profit,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+</mapper>

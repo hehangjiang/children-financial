@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czb.train.childrenfinancial.mapper.UserInfMapper">
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.UserInf">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <id column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="RELATED_ACCOUNT" jdbcType="VARCHAR" property="relatedAccount" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="IS_PARENT" jdbcType="BIT" property="isParent" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="PHONE_NBR" jdbcType="VARCHAR" property="phoneNbr" />
+    <result column="LOGIN_PW" jdbcType="VARCHAR" property="loginPw" />
+    <result column="OPEN_TIME" jdbcType="TIMESTAMP" property="openTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, ACCOUNT, RELATED_ACCOUNT, NAME, IS_PARENT, ID_CARD, BIRTHDAY, PHONE_NBR, 
+    LOGIN_PW, OPEN_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_inf
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInfKey">
+    delete from user_inf
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    insert into user_inf (USER_ID, ACCOUNT, RELATED_ACCOUNT, 
+      NAME, IS_PARENT, ID_CARD, 
+      BIRTHDAY, PHONE_NBR, LOGIN_PW, 
+      OPEN_TIME)
+    values (#{userId,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{relatedAccount,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{isParent,jdbcType=BIT}, #{idCard,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{phoneNbr,jdbcType=VARCHAR}, #{loginPw,jdbcType=VARCHAR}, 
+      #{openTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    insert into user_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="relatedAccount != null">
+        RELATED_ACCOUNT,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="isParent != null">
+        IS_PARENT,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="phoneNbr != null">
+        PHONE_NBR,
+      </if>
+      <if test="loginPw != null">
+        LOGIN_PW,
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedAccount != null">
+        #{relatedAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null">
+        #{isParent,jdbcType=BIT},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNbr != null">
+        #{phoneNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPw != null">
+        #{loginPw,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    update user_inf
+    <set>
+      <if test="relatedAccount != null">
+        RELATED_ACCOUNT = #{relatedAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null">
+        IS_PARENT = #{isParent,jdbcType=BIT},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNbr != null">
+        PHONE_NBR = #{phoneNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPw != null">
+        LOGIN_PW = #{loginPw,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    update user_inf
+    set RELATED_ACCOUNT = #{relatedAccount,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      IS_PARENT = #{isParent,jdbcType=BIT},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      PHONE_NBR = #{phoneNbr,jdbcType=VARCHAR},
+      LOGIN_PW = #{loginPw,jdbcType=VARCHAR},
+      OPEN_TIME = #{openTime,jdbcType=TIMESTAMP}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.UserInf">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <id column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="RELATED_ACCOUNT" jdbcType="VARCHAR" property="relatedAccount" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="IS_PARENT" jdbcType="BIT" property="isParent" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="PHONE_NBR" jdbcType="VARCHAR" property="phoneNbr" />
+    <result column="LOGIN_PW" jdbcType="VARCHAR" property="loginPw" />
+    <result column="OPEN_TIME" jdbcType="TIMESTAMP" property="openTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, ACCOUNT, RELATED_ACCOUNT, NAME, IS_PARENT, ID_CARD, BIRTHDAY, PHONE_NBR, 
+    LOGIN_PW, OPEN_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_inf
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInfKey">
+    delete from user_inf
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    insert into user_inf (USER_ID, ACCOUNT, RELATED_ACCOUNT, 
+      NAME, IS_PARENT, ID_CARD, 
+      BIRTHDAY, PHONE_NBR, LOGIN_PW, 
+      OPEN_TIME)
+    values (#{userId,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{relatedAccount,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{isParent,jdbcType=BIT}, #{idCard,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{phoneNbr,jdbcType=VARCHAR}, #{loginPw,jdbcType=VARCHAR}, 
+      #{openTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    insert into user_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="relatedAccount != null">
+        RELATED_ACCOUNT,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="isParent != null">
+        IS_PARENT,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="phoneNbr != null">
+        PHONE_NBR,
+      </if>
+      <if test="loginPw != null">
+        LOGIN_PW,
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedAccount != null">
+        #{relatedAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null">
+        #{isParent,jdbcType=BIT},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNbr != null">
+        #{phoneNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPw != null">
+        #{loginPw,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    update user_inf
+    <set>
+      <if test="relatedAccount != null">
+        RELATED_ACCOUNT = #{relatedAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null">
+        IS_PARENT = #{isParent,jdbcType=BIT},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNbr != null">
+        PHONE_NBR = #{phoneNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPw != null">
+        LOGIN_PW = #{loginPw,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    update user_inf
+    set RELATED_ACCOUNT = #{relatedAccount,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      IS_PARENT = #{isParent,jdbcType=BIT},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      PHONE_NBR = #{phoneNbr,jdbcType=VARCHAR},
+      LOGIN_PW = #{loginPw,jdbcType=VARCHAR},
+      OPEN_TIME = #{openTime,jdbcType=TIMESTAMP}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.UserInf">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <id column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="RELATED_ACCOUNT" jdbcType="VARCHAR" property="relatedAccount" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="IS_PARENT" jdbcType="BIT" property="isParent" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="PHONE_NBR" jdbcType="VARCHAR" property="phoneNbr" />
+    <result column="LOGIN_PW" jdbcType="VARCHAR" property="loginPw" />
+    <result column="OPEN_TIME" jdbcType="TIMESTAMP" property="openTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, ACCOUNT, RELATED_ACCOUNT, NAME, IS_PARENT, ID_CARD, BIRTHDAY, PHONE_NBR, 
+    LOGIN_PW, OPEN_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_inf
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInfKey">
+    delete from user_inf
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    insert into user_inf (USER_ID, ACCOUNT, RELATED_ACCOUNT, 
+      NAME, IS_PARENT, ID_CARD, 
+      BIRTHDAY, PHONE_NBR, LOGIN_PW, 
+      OPEN_TIME)
+    values (#{userId,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{relatedAccount,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{isParent,jdbcType=BIT}, #{idCard,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{phoneNbr,jdbcType=VARCHAR}, #{loginPw,jdbcType=VARCHAR}, 
+      #{openTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    insert into user_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="relatedAccount != null">
+        RELATED_ACCOUNT,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="isParent != null">
+        IS_PARENT,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="phoneNbr != null">
+        PHONE_NBR,
+      </if>
+      <if test="loginPw != null">
+        LOGIN_PW,
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedAccount != null">
+        #{relatedAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null">
+        #{isParent,jdbcType=BIT},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNbr != null">
+        #{phoneNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPw != null">
+        #{loginPw,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    update user_inf
+    <set>
+      <if test="relatedAccount != null">
+        RELATED_ACCOUNT = #{relatedAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null">
+        IS_PARENT = #{isParent,jdbcType=BIT},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNbr != null">
+        PHONE_NBR = #{phoneNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPw != null">
+        LOGIN_PW = #{loginPw,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.UserInf">
+    update user_inf
+    set RELATED_ACCOUNT = #{relatedAccount,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      IS_PARENT = #{isParent,jdbcType=BIT},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      PHONE_NBR = #{phoneNbr,jdbcType=VARCHAR},
+      LOGIN_PW = #{loginPw,jdbcType=VARCHAR},
+      OPEN_TIME = #{openTime,jdbcType=TIMESTAMP}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ACCOUNT = #{account,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByUsername" parameterType="String" resultMap="BaseResultMap">
+    select *
+    from user_inf
+    where 1=1
+    <if test="account != null">
+      ACCOUNT = #{Account,jdbcType=VARCHAR},
+    </if>
+  </select>
+</mapper>

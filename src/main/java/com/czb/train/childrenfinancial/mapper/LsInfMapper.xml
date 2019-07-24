@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czb.train.childrenfinancial.mapper.LsInfMapper">
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.LsInf">
+    <id column="BUSI_ACCEPT_ID" jdbcType="VARCHAR" property="busiAcceptId" />
+    <id column="OWN_ACCT" jdbcType="VARCHAR" property="ownAcct" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="REMAIN_AMT" jdbcType="DECIMAL" property="remainAmt" />
+    <result column="YOUR_ACCT" jdbcType="VARCHAR" property="yourAcct" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BUSI_ACCEPT_ID, OWN_ACCT, STATUS, AMT, REMAIN_AMT, YOUR_ACCT, ADD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ls_inf
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInfKey">
+    delete from ls_inf
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    insert into ls_inf (BUSI_ACCEPT_ID, OWN_ACCT, STATUS, 
+      AMT, REMAIN_AMT, YOUR_ACCT, 
+      ADD_TIME)
+    values (#{busiAcceptId,jdbcType=VARCHAR}, #{ownAcct,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{remainAmt,jdbcType=DECIMAL}, #{yourAcct,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    insert into ls_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiAcceptId != null">
+        BUSI_ACCEPT_ID,
+      </if>
+      <if test="ownAcct != null">
+        OWN_ACCT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="remainAmt != null">
+        REMAIN_AMT,
+      </if>
+      <if test="yourAcct != null">
+        YOUR_ACCT,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiAcceptId != null">
+        #{busiAcceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="ownAcct != null">
+        #{ownAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmt != null">
+        #{remainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yourAcct != null">
+        #{yourAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    update ls_inf
+    <set>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmt != null">
+        REMAIN_AMT = #{remainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yourAcct != null">
+        YOUR_ACCT = #{yourAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    update ls_inf
+    set STATUS = #{status,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      REMAIN_AMT = #{remainAmt,jdbcType=DECIMAL},
+      YOUR_ACCT = #{yourAcct,jdbcType=VARCHAR},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.LsInf">
+    <id column="BUSI_ACCEPT_ID" jdbcType="VARCHAR" property="busiAcceptId" />
+    <id column="OWN_ACCT" jdbcType="VARCHAR" property="ownAcct" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="REMAIN_AMT" jdbcType="DECIMAL" property="remainAmt" />
+    <result column="YOUR_ACCT" jdbcType="VARCHAR" property="yourAcct" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BUSI_ACCEPT_ID, OWN_ACCT, STATUS, AMT, REMAIN_AMT, YOUR_ACCT, ADD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ls_inf
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInfKey">
+    delete from ls_inf
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    insert into ls_inf (BUSI_ACCEPT_ID, OWN_ACCT, STATUS, 
+      AMT, REMAIN_AMT, YOUR_ACCT, 
+      ADD_TIME)
+    values (#{busiAcceptId,jdbcType=VARCHAR}, #{ownAcct,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{remainAmt,jdbcType=DECIMAL}, #{yourAcct,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    insert into ls_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiAcceptId != null">
+        BUSI_ACCEPT_ID,
+      </if>
+      <if test="ownAcct != null">
+        OWN_ACCT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="remainAmt != null">
+        REMAIN_AMT,
+      </if>
+      <if test="yourAcct != null">
+        YOUR_ACCT,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiAcceptId != null">
+        #{busiAcceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="ownAcct != null">
+        #{ownAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmt != null">
+        #{remainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yourAcct != null">
+        #{yourAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    update ls_inf
+    <set>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmt != null">
+        REMAIN_AMT = #{remainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yourAcct != null">
+        YOUR_ACCT = #{yourAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    update ls_inf
+    set STATUS = #{status,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      REMAIN_AMT = #{remainAmt,jdbcType=DECIMAL},
+      YOUR_ACCT = #{yourAcct,jdbcType=VARCHAR},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.LsInf">
+    <id column="BUSI_ACCEPT_ID" jdbcType="VARCHAR" property="busiAcceptId" />
+    <id column="OWN_ACCT" jdbcType="VARCHAR" property="ownAcct" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="REMAIN_AMT" jdbcType="DECIMAL" property="remainAmt" />
+    <result column="YOUR_ACCT" jdbcType="VARCHAR" property="yourAcct" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BUSI_ACCEPT_ID, OWN_ACCT, STATUS, AMT, REMAIN_AMT, YOUR_ACCT, ADD_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ls_inf
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInfKey">
+    delete from ls_inf
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    insert into ls_inf (BUSI_ACCEPT_ID, OWN_ACCT, STATUS, 
+      AMT, REMAIN_AMT, YOUR_ACCT, 
+      ADD_TIME)
+    values (#{busiAcceptId,jdbcType=VARCHAR}, #{ownAcct,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{amt,jdbcType=DECIMAL}, #{remainAmt,jdbcType=DECIMAL}, #{yourAcct,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    insert into ls_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="busiAcceptId != null">
+        BUSI_ACCEPT_ID,
+      </if>
+      <if test="ownAcct != null">
+        OWN_ACCT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="remainAmt != null">
+        REMAIN_AMT,
+      </if>
+      <if test="yourAcct != null">
+        YOUR_ACCT,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="busiAcceptId != null">
+        #{busiAcceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="ownAcct != null">
+        #{ownAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmt != null">
+        #{remainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yourAcct != null">
+        #{yourAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    update ls_inf
+    <set>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmt != null">
+        REMAIN_AMT = #{remainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yourAcct != null">
+        YOUR_ACCT = #{yourAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.LsInf">
+    update ls_inf
+    set STATUS = #{status,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      REMAIN_AMT = #{remainAmt,jdbcType=DECIMAL},
+      YOUR_ACCT = #{yourAcct,jdbcType=VARCHAR},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+    where BUSI_ACCEPT_ID = #{busiAcceptId,jdbcType=VARCHAR}
+      and OWN_ACCT = #{ownAcct,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czb.train.childrenfinancial.mapper.FinProductInfMapper">
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.FinProductInf">
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="SETTLE_CARDNBR" jdbcType="VARCHAR" property="settleCardnbr" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName" />
+    <result column="START_AMT" jdbcType="DECIMAL" property="startAmt" />
+    <result column="END_AMT" jdbcType="DECIMAL" property="endAmt" />
+    <result column="END_DATE" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="SHORTEST_PERIOD" jdbcType="TINYINT" property="shortestPeriod" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRODUCT_ID, SETTLE_CARDNBR, PRODUCT_NAME, START_AMT, END_AMT, END_DATE, RATE, SHORTEST_PERIOD
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fin_product_inf
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fin_product_inf
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    insert into fin_product_inf (PRODUCT_ID, SETTLE_CARDNBR, PRODUCT_NAME, 
+      START_AMT, END_AMT, END_DATE, 
+      RATE, SHORTEST_PERIOD)
+    values (#{productId,jdbcType=VARCHAR}, #{settleCardnbr,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{startAmt,jdbcType=DECIMAL}, #{endAmt,jdbcType=DECIMAL}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{rate,jdbcType=DECIMAL}, #{shortestPeriod,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    insert into fin_product_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="settleCardnbr != null">
+        SETTLE_CARDNBR,
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="startAmt != null">
+        START_AMT,
+      </if>
+      <if test="endAmt != null">
+        END_AMT,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="shortestPeriod != null">
+        SHORTEST_PERIOD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="settleCardnbr != null">
+        #{settleCardnbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="startAmt != null">
+        #{startAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endAmt != null">
+        #{endAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="shortestPeriod != null">
+        #{shortestPeriod,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    update fin_product_inf
+    <set>
+      <if test="settleCardnbr != null">
+        SETTLE_CARDNBR = #{settleCardnbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="startAmt != null">
+        START_AMT = #{startAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endAmt != null">
+        END_AMT = #{endAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="shortestPeriod != null">
+        SHORTEST_PERIOD = #{shortestPeriod,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    update fin_product_inf
+    set SETTLE_CARDNBR = #{settleCardnbr,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      START_AMT = #{startAmt,jdbcType=DECIMAL},
+      END_AMT = #{endAmt,jdbcType=DECIMAL},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      RATE = #{rate,jdbcType=DECIMAL},
+      SHORTEST_PERIOD = #{shortestPeriod,jdbcType=TINYINT}
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.FinProductInf">
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="SETTLE_CARDNBR" jdbcType="VARCHAR" property="settleCardnbr" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName" />
+    <result column="START_AMT" jdbcType="DECIMAL" property="startAmt" />
+    <result column="END_AMT" jdbcType="DECIMAL" property="endAmt" />
+    <result column="END_DATE" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="SHORTEST_PERIOD" jdbcType="TINYINT" property="shortestPeriod" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRODUCT_ID, SETTLE_CARDNBR, PRODUCT_NAME, START_AMT, END_AMT, END_DATE, RATE, SHORTEST_PERIOD
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fin_product_inf
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fin_product_inf
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    insert into fin_product_inf (PRODUCT_ID, SETTLE_CARDNBR, PRODUCT_NAME, 
+      START_AMT, END_AMT, END_DATE, 
+      RATE, SHORTEST_PERIOD)
+    values (#{productId,jdbcType=VARCHAR}, #{settleCardnbr,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{startAmt,jdbcType=DECIMAL}, #{endAmt,jdbcType=DECIMAL}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{rate,jdbcType=DECIMAL}, #{shortestPeriod,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    insert into fin_product_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="settleCardnbr != null">
+        SETTLE_CARDNBR,
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="startAmt != null">
+        START_AMT,
+      </if>
+      <if test="endAmt != null">
+        END_AMT,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="shortestPeriod != null">
+        SHORTEST_PERIOD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="settleCardnbr != null">
+        #{settleCardnbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="startAmt != null">
+        #{startAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endAmt != null">
+        #{endAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="shortestPeriod != null">
+        #{shortestPeriod,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    update fin_product_inf
+    <set>
+      <if test="settleCardnbr != null">
+        SETTLE_CARDNBR = #{settleCardnbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="startAmt != null">
+        START_AMT = #{startAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endAmt != null">
+        END_AMT = #{endAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="shortestPeriod != null">
+        SHORTEST_PERIOD = #{shortestPeriod,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    update fin_product_inf
+    set SETTLE_CARDNBR = #{settleCardnbr,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      START_AMT = #{startAmt,jdbcType=DECIMAL},
+      END_AMT = #{endAmt,jdbcType=DECIMAL},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      RATE = #{rate,jdbcType=DECIMAL},
+      SHORTEST_PERIOD = #{shortestPeriod,jdbcType=TINYINT}
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.FinProductInf">
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="SETTLE_CARDNBR" jdbcType="VARCHAR" property="settleCardnbr" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName" />
+    <result column="START_AMT" jdbcType="DECIMAL" property="startAmt" />
+    <result column="END_AMT" jdbcType="DECIMAL" property="endAmt" />
+    <result column="END_DATE" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="SHORTEST_PERIOD" jdbcType="TINYINT" property="shortestPeriod" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRODUCT_ID, SETTLE_CARDNBR, PRODUCT_NAME, START_AMT, END_AMT, END_DATE, RATE, SHORTEST_PERIOD
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fin_product_inf
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fin_product_inf
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    insert into fin_product_inf (PRODUCT_ID, SETTLE_CARDNBR, PRODUCT_NAME, 
+      START_AMT, END_AMT, END_DATE, 
+      RATE, SHORTEST_PERIOD)
+    values (#{productId,jdbcType=VARCHAR}, #{settleCardnbr,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{startAmt,jdbcType=DECIMAL}, #{endAmt,jdbcType=DECIMAL}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{rate,jdbcType=DECIMAL}, #{shortestPeriod,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    insert into fin_product_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="settleCardnbr != null">
+        SETTLE_CARDNBR,
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="startAmt != null">
+        START_AMT,
+      </if>
+      <if test="endAmt != null">
+        END_AMT,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="shortestPeriod != null">
+        SHORTEST_PERIOD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="settleCardnbr != null">
+        #{settleCardnbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="startAmt != null">
+        #{startAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endAmt != null">
+        #{endAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="shortestPeriod != null">
+        #{shortestPeriod,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    update fin_product_inf
+    <set>
+      <if test="settleCardnbr != null">
+        SETTLE_CARDNBR = #{settleCardnbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="startAmt != null">
+        START_AMT = #{startAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endAmt != null">
+        END_AMT = #{endAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="shortestPeriod != null">
+        SHORTEST_PERIOD = #{shortestPeriod,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.FinProductInf">
+    update fin_product_inf
+    set SETTLE_CARDNBR = #{settleCardnbr,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      START_AMT = #{startAmt,jdbcType=DECIMAL},
+      END_AMT = #{endAmt,jdbcType=DECIMAL},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      RATE = #{rate,jdbcType=DECIMAL},
+      SHORTEST_PERIOD = #{shortestPeriod,jdbcType=TINYINT}
+    where PRODUCT_ID = #{productId,jdbcType=VARCHAR}
+  </update>
+</mapper>

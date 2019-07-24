@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czb.train.childrenfinancial.mapper.CardInfMapper">
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.CardInf">
+    <id column="CARD_ID" jdbcType="VARCHAR" property="cardId" />
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="CARD_NBR" jdbcType="VARCHAR" property="cardNbr" />
+    <result column="CARD_PRO_NAME" jdbcType="VARCHAR" property="cardProName" />
+    <result column="CARD_TYPE" jdbcType="VARCHAR" property="cardType" />
+    <result column="PAY_PW" jdbcType="VARCHAR" property="payPw" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="BASE_RATE" jdbcType="DECIMAL" property="baseRate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CARD_ID, USER_ID, ID_CARD, CARD_NBR, CARD_PRO_NAME, CARD_TYPE, PAY_PW, AMT, BASE_RATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from card_inf
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInfKey">
+    delete from card_inf
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    insert into card_inf (CARD_ID, USER_ID, ID_CARD, 
+      CARD_NBR, CARD_PRO_NAME, CARD_TYPE, 
+      PAY_PW, AMT, BASE_RATE
+      )
+    values (#{cardId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{cardNbr,jdbcType=VARCHAR}, #{cardProName,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, 
+      #{payPw,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{baseRate,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    insert into card_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="cardNbr != null">
+        CARD_NBR,
+      </if>
+      <if test="cardProName != null">
+        CARD_PRO_NAME,
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE,
+      </if>
+      <if test="payPw != null">
+        PAY_PW,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNbr != null">
+        #{cardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="cardProName != null">
+        #{cardProName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="payPw != null">
+        #{payPw,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        #{baseRate,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    update card_inf
+    <set>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNbr != null">
+        CARD_NBR = #{cardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="cardProName != null">
+        CARD_PRO_NAME = #{cardProName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="payPw != null">
+        PAY_PW = #{payPw,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE = #{baseRate,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    update card_inf
+    set ID_CARD = #{idCard,jdbcType=VARCHAR},
+      CARD_NBR = #{cardNbr,jdbcType=VARCHAR},
+      CARD_PRO_NAME = #{cardProName,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      PAY_PW = #{payPw,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      BASE_RATE = #{baseRate,jdbcType=DECIMAL}
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.CardInf">
+    <id column="CARD_ID" jdbcType="VARCHAR" property="cardId" />
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="CARD_NBR" jdbcType="VARCHAR" property="cardNbr" />
+    <result column="CARD_PRO_NAME" jdbcType="VARCHAR" property="cardProName" />
+    <result column="CARD_TYPE" jdbcType="VARCHAR" property="cardType" />
+    <result column="PAY_PW" jdbcType="VARCHAR" property="payPw" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="BASE_RATE" jdbcType="DECIMAL" property="baseRate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CARD_ID, USER_ID, ID_CARD, CARD_NBR, CARD_PRO_NAME, CARD_TYPE, PAY_PW, AMT, BASE_RATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from card_inf
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInfKey">
+    delete from card_inf
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    insert into card_inf (CARD_ID, USER_ID, ID_CARD, 
+      CARD_NBR, CARD_PRO_NAME, CARD_TYPE, 
+      PAY_PW, AMT, BASE_RATE
+      )
+    values (#{cardId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{cardNbr,jdbcType=VARCHAR}, #{cardProName,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, 
+      #{payPw,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{baseRate,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    insert into card_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="cardNbr != null">
+        CARD_NBR,
+      </if>
+      <if test="cardProName != null">
+        CARD_PRO_NAME,
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE,
+      </if>
+      <if test="payPw != null">
+        PAY_PW,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNbr != null">
+        #{cardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="cardProName != null">
+        #{cardProName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="payPw != null">
+        #{payPw,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        #{baseRate,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    update card_inf
+    <set>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNbr != null">
+        CARD_NBR = #{cardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="cardProName != null">
+        CARD_PRO_NAME = #{cardProName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="payPw != null">
+        PAY_PW = #{payPw,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE = #{baseRate,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    update card_inf
+    set ID_CARD = #{idCard,jdbcType=VARCHAR},
+      CARD_NBR = #{cardNbr,jdbcType=VARCHAR},
+      CARD_PRO_NAME = #{cardProName,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      PAY_PW = #{payPw,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      BASE_RATE = #{baseRate,jdbcType=DECIMAL}
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.czb.train.childrenfinancial.entity.CardInf">
+    <id column="CARD_ID" jdbcType="VARCHAR" property="cardId" />
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="CARD_NBR" jdbcType="VARCHAR" property="cardNbr" />
+    <result column="CARD_PRO_NAME" jdbcType="VARCHAR" property="cardProName" />
+    <result column="CARD_TYPE" jdbcType="VARCHAR" property="cardType" />
+    <result column="PAY_PW" jdbcType="VARCHAR" property="payPw" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="BASE_RATE" jdbcType="DECIMAL" property="baseRate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CARD_ID, USER_ID, ID_CARD, CARD_NBR, CARD_PRO_NAME, CARD_TYPE, PAY_PW, AMT, BASE_RATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInfKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from card_inf
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInfKey">
+    delete from card_inf
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    insert into card_inf (CARD_ID, USER_ID, ID_CARD, 
+      CARD_NBR, CARD_PRO_NAME, CARD_TYPE, 
+      PAY_PW, AMT, BASE_RATE
+      )
+    values (#{cardId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{cardNbr,jdbcType=VARCHAR}, #{cardProName,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, 
+      #{payPw,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{baseRate,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    insert into card_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="cardNbr != null">
+        CARD_NBR,
+      </if>
+      <if test="cardProName != null">
+        CARD_PRO_NAME,
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE,
+      </if>
+      <if test="payPw != null">
+        PAY_PW,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNbr != null">
+        #{cardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="cardProName != null">
+        #{cardProName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="payPw != null">
+        #{payPw,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        #{baseRate,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    update card_inf
+    <set>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNbr != null">
+        CARD_NBR = #{cardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="cardProName != null">
+        CARD_PRO_NAME = #{cardProName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="payPw != null">
+        PAY_PW = #{payPw,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE = #{baseRate,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.czb.train.childrenfinancial.entity.CardInf">
+    update card_inf
+    set ID_CARD = #{idCard,jdbcType=VARCHAR},
+      CARD_NBR = #{cardNbr,jdbcType=VARCHAR},
+      CARD_PRO_NAME = #{cardProName,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      PAY_PW = #{payPw,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      BASE_RATE = #{baseRate,jdbcType=DECIMAL}
+    where CARD_ID = #{cardId,jdbcType=VARCHAR}
+      and USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>
